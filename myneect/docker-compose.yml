@@ -1,0 +1,33 @@
+version: "3.1"
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./logs/nginx:/var/log/nginx
+      - ./phpbb:/var/www/html
+    links:
+            #   depends_on:
+      - php
+      - postgres
+    restart: always
+
+  php:
+    # image: php:7.1-fpm-alpine
+    image: allansimon/php7-fpm-postgresql
+    restart: always  
+    volumes:
+      - ./phpbb:/var/www/html
+    links:
+      - postgres:postgres
+
+  postgres:
+    image: postgres:9.6.5
+    volumes:
+      - ./db:/var/lib/postgresql/data
+        #ports: 
+    #- 5432:5432
+    environment:
+      POSTGRES_PASSWORD: YOUR_POSTGRES_PASSWORD
