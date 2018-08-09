@@ -1,6 +1,6 @@
 # MyNEECT
 
-Este repositório contém toda a configuração necessária para replicar um servidor de fórum de curso myNEECT com todas as funcionalidades disponíveis em https://arquivo.ect-ua.com.
+Este repositório contém toda a configuração necessária para replicar um servidor de fórum de curso myNEECT com todas as funcionalidades disponíveis em https://www.ect-ua.com.
 
 Este repositório inclui:
 
